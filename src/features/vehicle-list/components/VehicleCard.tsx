@@ -160,7 +160,7 @@ export const VehicleCard = ({
         {/* Status Row */}
         <div className="vc-status-row">
           <VehicleStatusItem
-            icon={<PiEngineBold size={20} className="icon-engine" />}
+            icon={<PiEngineBold size={20} className={`icon-engine${!accOn ? ' icon-engine-off' : ''}`} />}
             label={accOn ? 'ACC ON' : 'ACC OFF'}
           />
           <VehicleStatusItem

@@ -24,6 +24,10 @@ export const VehicleStatusItem = ({ icon, label, className = '' }: VehicleStatus
           color: #22c55e;
         }
 
+        .vc-status-item .icon-engine-off {
+          color: #ef4444;
+        }
+
         .vc-status-item .icon-signal {
           color: #a6a6a6;
         }

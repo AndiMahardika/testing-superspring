@@ -1,12 +1,13 @@
 import { DashboardLayout } from '../dashboard/components/Layout';
 import { VehicleCard } from './components/VehicleCard';
-
-const dummyVehicles = [
-  { vehicleName: 'B 1234 QWE - TRUCK 0001', shipmentNumber: '35ACB95238' },
-  { vehicleName: 'B 5678 RTY - TRUCK 0002', shipmentNumber: '35ACB95239' }
-];
+import useVehicleList from './hooks/useVehicleList';
 
 export const VehicleList = () => {
+  const { vehicles, isLoading, error } = useVehicleList();
+
+  if (isLoading) return <DashboardLayout><p>Loading...</p></DashboardLayout>;
+  if (error) return <DashboardLayout><p style={{ color: '#ef4444' }}>{error}</p></DashboardLayout>;
+
   return (
     <DashboardLayout>
       <div style={{
@@ -14,11 +15,18 @@ export const VehicleList = () => {
         gridTemplateColumns: 'repeat(2, 1fr)',
         gap: '20px',
       }}>
-        {dummyVehicles.map((v, i) => (
+        {vehicles.map((v, i) => (
           <VehicleCard
             key={i}
-            vehicleName={v.vehicleName}
+            status={v.status}
             shipmentNumber={v.shipmentNumber}
+            vehicleName={v.vehicleName}
+            accOn={v.accOn}
+            signal={v.signal}
+            battery={v.battery}
+            lastData={v.lastData}
+            noGsm={v.noGsm}
+            expired={v.expired}
           />
         ))}
       </div>
