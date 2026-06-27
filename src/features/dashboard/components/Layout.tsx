@@ -11,7 +11,7 @@ export const DashboardLayout = ({children}: {children: React.ReactNode}) => {
         <Header />
 
         <main className="dashboard-content">
-          <div style={{ padding: '32px 30px', textAlign: 'center', color: '#797a7b' }}>
+          <div style={{ textAlign: 'center', color: '#797a7b' }}>
             {children}
           </div>
         </main>
