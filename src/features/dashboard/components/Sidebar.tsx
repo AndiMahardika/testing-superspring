@@ -3,6 +3,17 @@ import { Menu, Grid2x2, List, Settings, Power, Clock3  } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
 
 export const Sidebar = () => {
+  const navLinks = [
+    { label: "Dashboard", href: "/dashboard", icon: <Clock3 size={20} strokeWidth={2} /> },
+    { label: "Job", href: "/job", icon: <Grid2x2  size={20} strokeWidth={2} /> },
+    { label: "Vehicle Lists", href: "/vehicle-lists", icon: <List size={20} strokeWidth={2} /> },
+  ];
+
+  const authLinks = [
+    { label: "Settings", href: "/settings", icon: <Settings size={20} strokeWidth={2} /> },
+    { label: "Logout", href: "/logout", icon: <Power size={20} strokeWidth={2} /> },
+  ];
+
   return (
     <aside className="dashboard-sidebar">
       <div className="sidebar-top">
@@ -16,36 +27,30 @@ export const Sidebar = () => {
         </div>
 
         <nav className="sidebar-menu">
-          <NavLink 
-            to="/dashboard" 
-            className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}
-          >
-            <Clock3 size={20} strokeWidth={2} />
-            Dashboard
-          </NavLink>
-
-          <a href="#" className="sidebar-item">
-            <Grid2x2  size={20} strokeWidth={2} />
-            Job
-          </a>
-
-          <a href="#" className="sidebar-item active">
-            <List size={20} strokeWidth={2} />
-            Vehicle Lists
-          </a>
+          {navLinks.map((link, index) => (
+            <NavLink 
+              key={index} 
+              to={link.href} 
+              className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}
+            >
+              {link.icon}
+              {link.label}
+            </NavLink>
+          ))}
         </nav>
       </div>
 
       <div className="sidebar-bottom">
-        <a href="#" className="sidebar-item">
-          <Settings size={20} strokeWidth={2} />
-          Settings
-        </a>
-
-        <Button className="sidebar-item" variant="ghost">
-          <Power size={20} strokeWidth={2} />
-          Logout
-        </Button>
+        {authLinks.map((link, index) => (
+          <a 
+            key={index} 
+            href={link.href} 
+            className="sidebar-item"
+          >
+            {link.icon}
+            {link.label}
+          </a>
+        ))}
       </div>
     </aside>
   );
