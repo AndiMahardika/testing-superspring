@@ -1,4 +1,6 @@
 import './auth.css';
+import { Input } from '../../../components/ui/Input';
+import { Button } from '../../../components/ui/Button';
 
 export const Login = () => {
   return (
@@ -20,10 +22,10 @@ export const Login = () => {
             <label className="label-form">
               Email address:
             </label>
-            <input
+            <Input
               type="email"
               placeholder="esteban_schiller@gmail.com"
-              className="login-input"
+              className="input-field"
             />
           </div>
 
@@ -37,16 +39,16 @@ export const Login = () => {
                 Forget Password?
               </a>
             </div>
-            <input
+            <Input
               type="password"
               placeholder="••••••"
-              className="login-input login-password-input"
+              className="input-field"
             />
           </div>
 
           {/* Remember Password Checkbox */}
           <div className="login-remember-group">
-            <input
+            <Input
               type="checkbox"
               id="remember"
               className="login-checkbox"
@@ -57,12 +59,12 @@ export const Login = () => {
           </div>
 
           {/* Sign In Button */}
-          <button
+          <Button
             type="submit"
-            className="login-button"
+            className="btn-primary"
           >
             Sign In
-          </button>
+          </Button>
 
           {/* Footer Link */}
           <div className="login-footer">
