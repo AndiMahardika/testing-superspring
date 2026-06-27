@@ -19,6 +19,28 @@
   padding: 0 24px 32px;
   box-sizing: border-box;
   flex-shrink: 0;
+  transition: width 0.3s ease;
+}
+
+.dashboard-sidebar.collapsed {
+  width: 72px;
+  padding: 0 12px 32px;
+}
+
+.dashboard-sidebar.collapsed .sidebar-logo-container {
+  justify-content: center;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.dashboard-sidebar.collapsed .sidebar-item {
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.dashboard-container.sidebar-collapsed .dashboard-main {
+  margin-left: 0;
 }
 
 .sidebar-top {

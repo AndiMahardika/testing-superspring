@@ -2,7 +2,12 @@ import { NavLink } from 'react-router-dom';
 import { Menu, Grid2x2, List, Settings, Power, Clock3  } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
 
-export const Sidebar = () => {
+interface SidebarProps {
+  isOpen: boolean;
+  onToggle: () => void;
+}
+
+export const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
   const navLinks = [
     { label: "Dashboard", href: "/dashboard", icon: <Clock3 size={20} strokeWidth={2} /> },
     { label: "Job", href: "/job", icon: <Grid2x2  size={20} strokeWidth={2} /> },
@@ -15,13 +20,15 @@ export const Sidebar = () => {
   ];
 
   return (
-    <aside className="dashboard-sidebar">
+    <aside className={`dashboard-sidebar${isOpen ? '' : ' collapsed'}`}>
       <div className="sidebar-top">
         <div className="sidebar-logo-container">
-          <a href="#" className="sidebar-logo">
-            GPS.ID TMS
-          </a>
-          <Button className="" aria-label="Toggle Sidebar" variant="ghost">
+          {isOpen && (
+            <a href="#" className="sidebar-logo">
+              GPS.ID TMS
+            </a>
+          )}
+          <Button className="" aria-label="Toggle Sidebar" variant="ghost" onClick={onToggle}>
             <Menu size={20} strokeWidth={2.5} />
           </Button>
         </div>
@@ -34,7 +41,7 @@ export const Sidebar = () => {
               className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}
             >
               {link.icon}
-              {link.label}
+              {isOpen && link.label}
             </NavLink>
           ))}
         </nav>
@@ -48,7 +55,7 @@ export const Sidebar = () => {
             className="sidebar-item"
           >
             {link.icon}
-            {link.label}
+            {isOpen && link.label}
           </a>
         ))}
       </div>
