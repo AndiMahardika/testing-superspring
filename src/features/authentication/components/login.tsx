@@ -77,8 +77,8 @@ export const Login = () => {
           {/* Sign In Button */}
           <Button
             type="submit"
-            className="btn-primary"
             disabled={isLoading}
+            style={{display: 'flex', justifyContent: 'center', width: '80%', margin: 'auto'}}
           > 
             {isLoading ? "Signing In..." : "Sign In"}
           </Button>
