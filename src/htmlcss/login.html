@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - GPS.ID TMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <h2 class="login-title">
+          Login to <span class="login-title-highlight">GPS.ID TMS</span> Account
+        </h2>
+        <p class="login-subtitle">
+          Please enter your email and password to continue
+        </p>
+      </div>
+
+      <form class="login-form">
+        <div class="login-form-group">
+          <label class="label-form">Email address:</label>
+          <input type="text" class="input-field" placeholder="esteban_schiller@gmail.com" />
+        </div>
+
+        <div class="login-form-group">
+          <div class="login-password-header">
+            <label class="label-form">Password</label>
+            <a href="#" class="login-forgot-link">Forget Password?</a>
+          </div>
+          <input type="password" class="input-field" placeholder="••••••" />
+        </div>
+
+        <div class="login-remember-group">
+          <input type="checkbox" id="remember" class="login-checkbox" />
+          <label for="remember" class="login-checkbox-label">Remember Password</label>
+        </div>
+
+        <button type="button" class="btn-signin">Sign In</button>
+
+        <div class="login-footer">
+          <p class="login-footer-text">
+            Don't have an account?
+            <a href="#" class="login-footer-link">Create Account</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
