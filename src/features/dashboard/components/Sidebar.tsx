@@ -1,5 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import { Menu, Grid2x2, List, Settings, Power, Clock3  } from 'lucide-react';
+import { Menu, Grid2x2, Settings, Power, Clock3 } from 'lucide-react';
+import { TbListCheck } from "react-icons/tb";
+import { RiStackFill } from "react-icons/ri";
+import { BsFillBoxFill } from "react-icons/bs";
+import { LuLayoutGrid } from "react-icons/lu";
 import { Button } from '../../../components/ui/Button';
 
 interface SidebarProps {
@@ -9,9 +13,21 @@ interface SidebarProps {
 
 export const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
   const navLinks = [
-    { label: "Dashboard", href: "/dashboard", icon: <Clock3 size={20} strokeWidth={2} /> },
-    { label: "Job", href: "/job", icon: <Grid2x2  size={20} strokeWidth={2} /> },
-    { label: "Vehicle Lists", href: "/vehicle-lists", icon: <List size={20} strokeWidth={2} /> },
+    { 
+      label: "Dashboard", 
+      href: "/dashboard", 
+      icon: isOpen ? <Clock3 size={20} strokeWidth={2} /> : <LuLayoutGrid size={20} /> 
+    },
+    { 
+      label: "Job", 
+      href: "/job", 
+      icon: isOpen ? <Grid2x2 size={20} strokeWidth={2} /> : <BsFillBoxFill size={20} /> 
+    },
+    { 
+      label: "Vehicle Lists", 
+      href: "/vehicle-lists", 
+      icon: isOpen ? <TbListCheck size={20} strokeWidth={2} /> : <RiStackFill size={20} /> 
+    },
   ];
 
   const authLinks = [
