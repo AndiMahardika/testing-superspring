@@ -23,6 +23,7 @@ export const VehicleList = () => {
             status={v.status}
             shipmentNumber={v.shipmentNumber}
             vehicleName={v.vehicleName}
+            plate={v.plate}
             accOn={v.accOn}
             signal={v.signal}
             battery={v.battery}

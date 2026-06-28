@@ -10,6 +10,7 @@ export interface VehicleCardProps {
   status?: string;
   shipmentNumber?: string;
   vehicleName?: string;
+  plate?: string;
   accOn?: boolean;
   signal?: string;
   battery?: number;
@@ -21,7 +22,8 @@ export interface VehicleCardProps {
 export const VehicleCard = ({
   status = 'Dispatch',
   shipmentNumber = '35ACB95238',
-  vehicleName = 'B 1234 QWE - TRUCK 0001',
+  vehicleName = 'TRUCK 0001',
+  plate = 'B 1234 QWE',
   accOn = true,
   signal = 'N/A',
   battery = 100,
@@ -174,7 +176,7 @@ export const VehicleCard = ({
             <p className="vc-shipment">
               Shipment Number <span>{shipmentNumber}</span>
             </p>
-            <p className="vc-vehicle-name">{vehicleName}</p>
+            <p className="vc-vehicle-name">{plate} - {vehicleName}</p>
           </div>
         </div>
 

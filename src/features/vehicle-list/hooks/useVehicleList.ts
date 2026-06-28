@@ -6,6 +6,7 @@ export interface VehicleCardData {
   status: string;
   shipmentNumber: string;
   vehicleName: string;
+  plate: string;
   accOn: boolean;
   signal: string;
   battery: number;
@@ -25,7 +26,8 @@ function mapVehicleToCard(v: VehicleData): VehicleCardData {
             ? 'Stop'
             : 'Unknown',
     shipmentNumber: v.imei,
-    vehicleName: v.plate || v.device_name,
+    vehicleName: v.device_name,
+    plate: v.plate,
     accOn: v.acc === 'ON',
     signal: v.gsm_signal != null ? `${v.gsm_signal}` : 'N/A',
     battery: parseInt(v.battery, 10) || 0,
