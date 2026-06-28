@@ -1,11 +1,18 @@
-import { Search, Bell, ChevronDown } from 'lucide-react';
+import { Search, Bell, ChevronDown, Menu } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
 import { LanguageSelector } from './LanguageSelector';
 
-export const Header = () => {
+interface HeaderProps {
+  onToggleSidebar: () => void;
+}
+
+export const Header = ({ onToggleSidebar }: HeaderProps) => {
   return (
     <header className="dashboard-header">
       <div className="header-left">
+        <Button className="header-menu-btn" aria-label="Menu" variant="ghost" onClick={onToggleSidebar}>
+          <Menu size={20} strokeWidth={2.5} />
+        </Button>
         <div className="header-search-container">
           <Search className="header-search-icon" size={20} strokeWidth={2.5} />
           <input 

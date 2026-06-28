@@ -25,6 +25,12 @@ export const LanguageSelector = () => {
           font-weight: 600;
           color: #5a5b5c;
         }
+
+        @media (max-width: 768px) {
+          .lang-text {
+            display: none;
+          }
+        }
       `}
       </style>
 

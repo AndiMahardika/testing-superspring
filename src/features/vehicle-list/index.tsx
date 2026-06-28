@@ -14,7 +14,9 @@ export const VehicleList = () => {
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
         gap: '20px',
-      }}>
+      }}
+      className="vehicle-grid"
+      >
         {vehicles.map((v, i) => (
           <VehicleCard
             key={i}

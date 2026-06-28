@@ -11,7 +11,7 @@ export const DashboardLayout = ({children}: {children: React.ReactNode}) => {
       <Sidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
 
       <div className="dashboard-main">
-        <Header />
+        <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
 
         <main className="dashboard-content">
           <div style={{ textAlign: 'center', color: '#797a7b' }}>

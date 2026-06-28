@@ -129,6 +129,27 @@ export const VehicleCard = ({
           margin: 20px;
         }
 
+        @media (max-width: 768px) {
+          .vc-status-row {
+            flex-wrap: wrap;
+            gap: 8px;
+          }
+
+          .vc-footer {
+            flex-wrap: wrap;
+            gap: 8px;
+          }
+
+          .vc-body {
+            flex-wrap: wrap;
+            gap: 12px;
+          }
+
+          .vc-gauge img {
+            width: 72px;
+            height: 40px;
+          }
+        }
       `}</style>
 
       <div className="vehicle-card">
