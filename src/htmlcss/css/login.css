@@ -214,3 +214,80 @@ a {
   font-family: inherit;
   transition: all 0.2s ease;
 }
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 24px;
+    margin: 16px;
+    border-radius: 16px;
+  }
+
+  .login-title {
+    font-size: 22px;
+  }
+
+  .login-subtitle {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 24px;
+  }
+
+  .login-form-group {
+    margin-top: 24px;
+    gap: 10px;
+  }
+
+  .label-form {
+    font-size: 14px;
+  }
+
+  .input-field {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .login-forgot-link {
+    font-size: 13px;
+  }
+
+  .login-remember-group {
+    margin-top: 16px;
+    margin-bottom: 28px;
+    gap: 8px;
+  }
+
+  .login-checkbox {
+    width: 20px;
+    height: 20px;
+  }
+
+  .login-checkbox:checked::after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+  }
+
+  .login-checkbox-label {
+    font-size: 14px;
+  }
+
+  .login-footer {
+    margin-top: 14px;
+  }
+
+  .login-footer-text {
+    font-size: 13px;
+  }
+
+  .login-footer-link {
+    font-size: 14px;
+  }
+
+  .btn-signin {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+}
