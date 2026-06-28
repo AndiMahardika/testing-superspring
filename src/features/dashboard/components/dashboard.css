@@ -1,5 +1,3 @@
-/* dashboard.css */
-
 .dashboard-container {
   display: flex;
   min-height: 100vh;
@@ -74,6 +72,7 @@
 }
 
 .sidebar-item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -86,6 +85,24 @@
   line-height: 100%;
   letter-spacing: 0.3px;
   transition: all 0.2s ease;
+}
+
+.sidebar-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #3b9ced;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  opacity: 0;
+  transform: scaleY(0.3);
+}
+
+.dashboard-sidebar.collapsed .sidebar-item::before {
+  left: -12px;
 }
 
 button.sidebar-item {
@@ -107,6 +124,11 @@ button.sidebar-item:hover {
 .sidebar-item.active {
   background-color: #3b9ced;
   color: white;
+}
+
+.sidebar-item.active::before {
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 .sidebar-bottom {
