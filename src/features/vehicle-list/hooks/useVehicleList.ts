@@ -15,16 +15,23 @@ export interface VehicleCardData {
   expired: string;
 }
 
+function getVehicleStatus(acc: string, speed: number): string {
+  if (acc === 'ON' && speed > 0) {
+    return 'Running';
+  }
+  if (acc === 'OFF' && speed === 0) {
+    return 'Parking';
+  }
+  if (acc === 'ON' && speed === 0) {
+    return 'Stop';
+  }
+
+  return 'Unknown';
+}
+
 function mapVehicleToCard(v: VehicleData): VehicleCardData {
   return {
-    status:
-      v.acc === 'ON' && v.speed > 0
-        ? 'Running'
-        : v.acc === 'OFF' && v.speed === 0
-          ? 'Parking'
-          : v.acc === 'ON' && v.speed === 0
-            ? 'Stop'
-            : 'Unknown',
+    status: getVehicleStatus(v.acc, v.speed),
     shipmentNumber: v.imei,
     vehicleName: v.device_name,
     plate: v.plate,
@@ -60,6 +67,7 @@ export default function useVehicleList() {
   useEffect(() => {
     fetchVehicles();
   }, []);
+
 
   return { vehicles, isLoading, error, refetch: fetchVehicles };
 }
