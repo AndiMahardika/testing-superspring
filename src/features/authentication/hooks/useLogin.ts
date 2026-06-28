@@ -1,13 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-interface LoginResponseData {
-  username: string;
-  fullname: string;
-  email: string;
-  phone: string;
-  token: string;
-}
+import { loginUser } from '../service/auth.service';
 
 export default function useLogin() {
   const navigate = useNavigate();
@@ -28,28 +21,10 @@ export default function useLogin() {
     setError("");
 
     try {
-      const response = await fetch("https://dev-portal.gps.id/backend/seen/public/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", 
-        },
-        body: JSON.stringify({
-          username: email,
-          password: password,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (data.status === true) {
-        const userData = data.message.data as LoginResponseData;
-        const { token } = userData;
-        localStorage.setItem("token_super_spring", token);
-        navigate('/dashboard');
-      } else {
-        setError(data.message || "Credential Invalid.");
-      }
-    } catch (_error) {
+      const result = await loginUser(email, password);
+      localStorage.setItem("token_super_spring", result.message.data.token);
+      navigate('/dashboard');
+    } catch {
       setError("Network error. Please try again later.");
     } finally {
       setIsLoading(false);
